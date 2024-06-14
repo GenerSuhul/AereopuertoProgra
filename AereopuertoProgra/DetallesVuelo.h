@@ -7,28 +7,31 @@ namespace AereopuertoProgra {
     using namespace System::Windows::Forms;
     using namespace System::Data;
     using namespace System::Drawing;
-    using namespace MySql::Data::MySqlClient;
+    using namespace MySql::Data::MySqlClient; // Para MySQL
 
     public ref class DetallesVuelo : public System::Windows::Forms::Form {
     public:
+        // Constructor del formulario
         DetallesVuelo(void) {
-            InitializeComponent();
-            connectionString = "Server = 127.0.0.1; Database = Aereopuerto_Progra; Uid = Gener; Pwd = Gener2004#;";
-            LoadData();
+            InitializeComponent(); // Inicializa los componentes del formulario
+            connectionString = "Server = 127.0.0.1; Database = Aereopuerto_Progra; Uid = Gener; Pwd = Gener2004#;"; // Cadena de conexión a la base de datos
+            LoadData(); // Carga los datos en el DataGridView
         }
 
     protected:
+        // Destructor del formulario
         ~DetallesVuelo() {
             if (components) {
-                delete components;
+                delete components; // Libera los componentes si existen
             }
         }
 
     private:
-        System::Windows::Forms::DataGridView^ dataGridViewVuelos;
-        System::Windows::Forms::Button^ buttonVerDetalles;
-        System::Windows::Forms::TextBox^ textBoxDetalles;
-        System::String^ connectionString; // Cadena de conexión
+        // Componentes del formulario
+        System::Windows::Forms::DataGridView^ dataGridViewVuelos; // DataGridView para mostrar los vuelos
+        System::Windows::Forms::Button^ buttonVerDetalles; // Botón para ver los detalles del vuelo
+        System::Windows::Forms::TextBox^ textBoxDetalles; // TextBox para mostrar los detalles del vuelo
+        System::String^ connectionString; // Cadena de conexión a la base de datos
 
         System::ComponentModel::Container^ components;
 
@@ -45,7 +48,7 @@ namespace AereopuertoProgra {
             this->dataGridViewVuelos->BackgroundColor = System::Drawing::SystemColors::InactiveCaption;
             this->dataGridViewVuelos->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
             this->dataGridViewVuelos->Location = System::Drawing::Point(16, 15);
-            this->dataGridViewVuelos->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+            this->dataGridViewVuelos->Margin = System::Windows::Forms::Padding(4);
             this->dataGridViewVuelos->Name = L"dataGridViewVuelos";
             this->dataGridViewVuelos->RowHeadersWidth = 51;
             this->dataGridViewVuelos->Size = System::Drawing::Size(718, 492);
@@ -56,7 +59,7 @@ namespace AereopuertoProgra {
             this->buttonVerDetalles->Font = (gcnew System::Drawing::Font(L"Century Gothic", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->buttonVerDetalles->Location = System::Drawing::Point(16, 514);
-            this->buttonVerDetalles->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+            this->buttonVerDetalles->Margin = System::Windows::Forms::Padding(4);
             this->buttonVerDetalles->Name = L"buttonVerDetalles";
             this->buttonVerDetalles->Size = System::Drawing::Size(200, 49);
             this->buttonVerDetalles->TabIndex = 1;
@@ -71,7 +74,7 @@ namespace AereopuertoProgra {
             this->textBoxDetalles->Font = (gcnew System::Drawing::Font(L"Century Gothic", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->textBoxDetalles->Location = System::Drawing::Point(755, 0);
-            this->textBoxDetalles->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+            this->textBoxDetalles->Margin = System::Windows::Forms::Padding(4);
             this->textBoxDetalles->Multiline = true;
             this->textBoxDetalles->Name = L"textBoxDetalles";
             this->textBoxDetalles->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
@@ -88,7 +91,7 @@ namespace AereopuertoProgra {
             this->Controls->Add(this->textBoxDetalles);
             this->Controls->Add(this->buttonVerDetalles);
             this->Controls->Add(this->dataGridViewVuelos);
-            this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+            this->Margin = System::Windows::Forms::Padding(4);
             this->Name = L"DetallesVuelo";
             this->Text = L"Detalles de Vuelo";
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridViewVuelos))->EndInit();
@@ -98,7 +101,9 @@ namespace AereopuertoProgra {
         }
 #pragma endregion
 
+        // Método para cargar los datos en el DataGridView
         void LoadData();
+        // Evento para manejar el clic del botón Ver Detalles
         void buttonVerDetalles_Click(System::Object^ sender, System::EventArgs^ e);
     };
 }

@@ -9,42 +9,43 @@ namespace AereopuertoProgra {
     using namespace System::Drawing;
     using namespace MySql::Data::MySqlClient; // Para MySQL
 
+    // Definición de la clase MainFormBoleto que hereda de System::Windows::Forms::Form
     public ref class MainFormBoleto : public System::Windows::Forms::Form {
     public:
+        // Constructor de la clase MainFormBoleto
         MainFormBoleto(void) {
-            InitializeComponent();
-            InitializePlaceholderText(); // Asegúrate de que este método esté definido
-            connectionString = "Server = 127.0.0.1; Database = Aereopuerto_Progra; Uid = Gener; Pwd = Gener2004#;";
+            InitializeComponent(); // Inicializa los componentes del formulario
+            InitializePlaceholderText(); // Inicializa el texto de marcador de posición en los TextBox
+            connectionString = "Server = 127.0.0.1; Database = Aereopuerto_Progra; Uid = Gener; Pwd = Gener2004#;"; // Cadena de conexión a la base de datos
         }
 
     protected:
+        // Destructor de la clase MainFormBoleto
         ~MainFormBoleto() {
             if (components) {
-                delete components;
+                delete components; // Libera los recursos de los componentes
             }
         }
 
     private:
-        System::Windows::Forms::DataGridView^ dataGridView1;
-
-
+        // Declaración de los controles del formulario
+        System::Windows::Forms::DataGridView^ dataGridView1; // Control DataGridView para mostrar datos
 
         // Botón para eliminar fila
+        System::String^ connectionString; // Cadena de conexión a la base de datos
 
-        System::String^ connectionString; // Variable de conexión
+        System::Windows::Forms::TextBox^ textBoxNumeroBoleto; // TextBox para el número de boleto
+        System::Windows::Forms::TextBox^ textBoxNombrePasajero; // TextBox para el nombre del pasajero
+        System::Windows::Forms::TextBox^ textBoxNumeroReserva; // TextBox para el número de reserva
 
-        System::Windows::Forms::TextBox^ textBoxNumeroBoleto;
-        System::Windows::Forms::TextBox^ textBoxNombrePasajero;
-        System::Windows::Forms::TextBox^ textBoxNumeroReserva;
-
-        System::ComponentModel::Container^ components;
+        System::ComponentModel::Container^ components; // Contenedor de componentes
 
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void) {
-            System::Windows::Forms::Button^ buttonCreate;
-            System::Windows::Forms::Button^ buttonRead;
-            System::Windows::Forms::Button^ buttonUpdate;
-            System::Windows::Forms::Button^ buttonDeleteRow;
+            System::Windows::Forms::Button^ buttonCreate; // Botón para crear registros
+            System::Windows::Forms::Button^ buttonRead; // Botón para leer registros
+            System::Windows::Forms::Button^ buttonUpdate; // Botón para actualizar registros
+            System::Windows::Forms::Button^ buttonDeleteRow; // Botón para eliminar una fila
             System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainFormBoleto::typeid));
             this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
             this->textBoxNumeroBoleto = (gcnew System::Windows::Forms::TextBox());
@@ -187,15 +188,15 @@ namespace AereopuertoProgra {
 #pragma endregion
 
         // Métodos para manejar el foco de los TextBox
-        void InitializePlaceholderText(); // Declaración del método
-        void SetPlaceholder(System::Windows::Forms::TextBox^ textBox, System::String^ placeholderText); // Declaración del método
-        void textBox_Enter(System::Object^ sender, System::EventArgs^ e);
-        void textBox_Leave(System::Object^ sender, System::EventArgs^ e);
+        void InitializePlaceholderText(); // Declaración del método para inicializar los textos de marcador de posición
+        void SetPlaceholder(System::Windows::Forms::TextBox^ textBox, System::String^ placeholderText); // Declaración del método para establecer los textos de marcador de posición
+        void textBox_Enter(System::Object^ sender, System::EventArgs^ e); // Evento para manejar la entrada de foco en los TextBox
+        void textBox_Leave(System::Object^ sender, System::EventArgs^ e); // Evento para manejar la salida de foco en los TextBox
 
         // Event handlers for buttons
-        void buttonCreate_Click(System::Object^ sender, System::EventArgs^ e);
-        void buttonRead_Click(System::Object^ sender, System::EventArgs^ e);
-        void buttonUpdate_Click(System::Object^ sender, System::EventArgs^ e);
-        void buttonDeleteRow_Click(System::Object^ sender, System::EventArgs^ e); // Declaración del nuevo método
+        void buttonCreate_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Create
+        void buttonRead_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Read
+        void buttonUpdate_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Update
+        void buttonDeleteRow_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Eliminar fila
     };
 }

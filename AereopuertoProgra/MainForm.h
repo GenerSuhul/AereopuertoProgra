@@ -12,32 +12,33 @@ namespace AereopuertoProgra {
     public ref class MainForm : public System::Windows::Forms::Form {
     public:
         MainForm(void) {
-            InitializeComponent();
-            InitializePlaceholderText(); // Asegúrate de que este método esté definido
-            connectionString = "Server = 127.0.0.1; Database = Aereopuerto_Progra; Uid = Gener; Pwd = Gener2004#;";
+            InitializeComponent(); // Inicializa los componentes del formulario
+            InitializePlaceholderText(); // Inicializa el texto de marcador de posición en los TextBox
+            connectionString = "Server = 127.0.0.1; Database = Aereopuerto_Progra; Uid = Gener; Pwd = Gener2004#;"; // Cadena de conexión a la base de datos
         }
 
     protected:
         ~MainForm() {
             if (components) {
-                delete components;
+                delete components; // Libera los recursos de los componentes
             }
         }
 
     private:
-        System::Windows::Forms::DataGridView^ dataGridView1;
-        System::Windows::Forms::Button^ buttonCreate;
-        System::Windows::Forms::Button^ buttonRead;
-        System::Windows::Forms::Button^ buttonUpdate;
-        System::Windows::Forms::Button^ buttonDeleteRow; // Botón para eliminar fila
+        // Declaración de los controles del formulario
+        System::Windows::Forms::DataGridView^ dataGridView1; // Control DataGridView para mostrar datos
+        System::Windows::Forms::Button^ buttonCreate; // Botón para crear registros
+        System::Windows::Forms::Button^ buttonRead; // Botón para leer registros
+        System::Windows::Forms::Button^ buttonUpdate; // Botón para actualizar registros
+        System::Windows::Forms::Button^ buttonDeleteRow; // Botón para eliminar una fila
 
-        System::String^ connectionString; // Variable de conexión
+        System::String^ connectionString; // Cadena de conexión a la base de datos
 
-        System::Windows::Forms::TextBox^ textBoxCodigo;
-        System::Windows::Forms::TextBox^ textBoxNombre;
-        System::Windows::Forms::TextBox^ textBoxUbicacion;
+        System::Windows::Forms::TextBox^ textBoxCodigo; // TextBox para el código de la aerolínea
+        System::Windows::Forms::TextBox^ textBoxNombre; // TextBox para el nombre de la aerolínea
+        System::Windows::Forms::TextBox^ textBoxUbicacion; // TextBox para la ubicación de la aerolínea
 
-        System::ComponentModel::Container^ components;
+        System::ComponentModel::Container^ components; // Contenedor de componentes
 
 #pragma region Windows Form Designer generated code
         void InitializeComponent(void) {
@@ -186,15 +187,15 @@ namespace AereopuertoProgra {
 #pragma endregion
 
         // Métodos para manejar el foco de los TextBox
-        void InitializePlaceholderText(); // Declaración del método
-        void SetPlaceholder(System::Windows::Forms::TextBox^ textBox, System::String^ placeholderText); // Declaración del método
-        void textBox_Enter(System::Object^ sender, System::EventArgs^ e);
-        void textBox_Leave(System::Object^ sender, System::EventArgs^ e);
+        void InitializePlaceholderText(); // Declaración del método para inicializar los textos de marcador de posición
+        void SetPlaceholder(System::Windows::Forms::TextBox^ textBox, System::String^ placeholderText); // Declaración del método para establecer los textos de marcador de posición
+        void textBox_Enter(System::Object^ sender, System::EventArgs^ e); // Evento para manejar la entrada de foco en los TextBox
+        void textBox_Leave(System::Object^ sender, System::EventArgs^ e); // Evento para manejar la salida de foco en los TextBox
 
         // Event handlers for buttons
-        void buttonCreate_Click(System::Object^ sender, System::EventArgs^ e);
-        void buttonRead_Click(System::Object^ sender, System::EventArgs^ e);
-        void buttonUpdate_Click(System::Object^ sender, System::EventArgs^ e);
-        void buttonDeleteRow_Click(System::Object^ sender, System::EventArgs^ e); // Declaración del nuevo método
+        void buttonCreate_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Create
+        void buttonRead_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Read
+        void buttonUpdate_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Update
+        void buttonDeleteRow_Click(System::Object^ sender, System::EventArgs^ e); // Evento para manejar el clic del botón Eliminar fila
     };
 }

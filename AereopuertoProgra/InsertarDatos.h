@@ -10,11 +10,13 @@ namespace AereopuertoProgra {
 
     public ref class InsertarDatos : public System::Windows::Forms::Form {
     public:
+        // Constructor de la clase InsertarDatos
         InsertarDatos(void) {
             InitializeComponent();
         }
 
     protected:
+        // Destructor de la clase InsertarDatos
         ~InsertarDatos() {
             if (components) {
                 delete components;
@@ -22,14 +24,15 @@ namespace AereopuertoProgra {
         }
 
     private:
+        // Declaración de los componentes de la interfaz gráfica
         System::Windows::Forms::Button^ buttonAerolineas;
         System::Windows::Forms::Button^ buttonPasajeros;
         System::Windows::Forms::Button^ buttonVuelos;
         System::Windows::Forms::Button^ buttonReservas;
         System::Windows::Forms::Button^ buttonBoletos;
         System::Windows::Forms::Button^ buttonDetallesVuelo;
-    private: System::Windows::Forms::Label^ label1;
-    private: System::Windows::Forms::Label^ label2;
+        System::Windows::Forms::Label^ label1;
+        System::Windows::Forms::Label^ label2;
 
         System::ComponentModel::Container^ components;
 
@@ -167,7 +170,7 @@ namespace AereopuertoProgra {
         }
 #pragma endregion
 
-        // Event handlers for buttons
+        // Manejadores de eventos para los botones
         void buttonAerolineas_Click(System::Object^ sender, System::EventArgs^ e);
         void buttonPasajeros_Click(System::Object^ sender, System::EventArgs^ e);
         void buttonVuelos_Click(System::Object^ sender, System::EventArgs^ e);

@@ -3,8 +3,10 @@
 using namespace System;
 using namespace System::Data;
 
+// Definición de la clase Vuelo
 ref class Vuelo {
 public:
+    // Constructor que inicializa los atributos de la clase Vuelo
     Vuelo(String^ numeroVuelo, String^ codigoAerolinea, String^ rutaOrigen, String^ rutaDestino) {
         this->NumeroVuelo = numeroVuelo;
         this->CodigoAerolinea = codigoAerolinea;
@@ -12,48 +14,52 @@ public:
         this->RutaDestino = rutaDestino;
     }
 
-    // GETTERS Y SETTERS
+    // Propiedad para el número de vuelo
     property String^ NumeroVuelo {
         String^ get() {
-            return numeroVuelo;
+            return numeroVuelo; // Retorna el número de vuelo
         }
         void set(String^ valor) {
-            numeroVuelo = valor;
+            numeroVuelo = valor; // Establece el número de vuelo
         }
     }
 
+    // Propiedad para el código de la aerolínea
     property String^ CodigoAerolinea {
         String^ get() {
-            return codigoAerolinea;
+            return codigoAerolinea; // Retorna el código de la aerolínea
         }
         void set(String^ valor) {
-            codigoAerolinea = valor;
+            codigoAerolinea = valor; // Establece el código de la aerolínea
         }
     }
 
+    // Propiedad para la ruta de origen
     property String^ RutaOrigen {
         String^ get() {
-            return rutaOrigen;
+            return rutaOrigen; // Retorna la ruta de origen
         }
         void set(String^ valor) {
-            rutaOrigen = valor;
+            rutaOrigen = valor; // Establece la ruta de origen
         }
     }
 
+    // Propiedad para la ruta de destino
     property String^ RutaDestino {
         String^ get() {
-            return rutaDestino;
+            return rutaDestino; // Retorna la ruta de destino
         }
         void set(String^ valor) {
-            rutaDestino = valor;
+            rutaDestino = valor; // Establece la ruta de destino
         }
     }
-    property DataTable^ Data; // Propiedad para almacenar los datos
 
+    // Propiedad para almacenar los datos en un DataTable
+    property DataTable^ Data;
 
 private:
-    String^ numeroVuelo;
-    String^ codigoAerolinea;
-    String^ rutaOrigen;
-    String^ rutaDestino;
+    String^ numeroVuelo; // Variable para el número de vuelo
+    String^ codigoAerolinea; // Variable para el código de la aerolínea
+    String^ rutaOrigen; // Variable para la ruta de origen
+    String^ rutaDestino; // Variable para la ruta de destino
 };
